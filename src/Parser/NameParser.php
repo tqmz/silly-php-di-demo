@@ -8,12 +8,13 @@ class NameParser {
 
     public function __construct($fallbackName = 'Dude')
     {
-        var_dump('NameParser: ' . $fallbackName);
-        $this->setFallbackName($fallbackName);
+        var_dump('NameParser (construct): ' . $fallbackName);
+        $this->fallbackName = $fallbackName;
     }
 
     public function setFallbackName($fallbackName)
     {
+        var_dump('NameParser (setter): ' . $fallbackName);
         $this->fallbackName = $fallbackName;
 
         return $this;
