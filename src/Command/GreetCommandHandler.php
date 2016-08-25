@@ -6,6 +6,7 @@ use Friendsoft\Parser\NameParser;
 
 // NOTE: still coupled to Symfony Console, but it could be generalized (PSR-like)
 //       and it's not more than an Interface
+// TODO: add CLIFramework, too
 use Symfony\Component\Console\Output\OutputInterface;
 
 class GreetCommandHandler {
