@@ -4,12 +4,13 @@ namespace Friendsoft\Parser;
 
 class NameParser {
 
-    private $fallbackName = 'Dude';
+    private $fallbackName;
 
-    //public function __construct($fallbackName = 'Dude')
-    //{
-    //    $this->setFallbackName($fallbackName);
-    //}
+    public function __construct($fallbackName = 'Dude')
+    {
+        var_dump('NameParser: ' . $fallbackName);
+        $this->setFallbackName($fallbackName);
+    }
 
     public function setFallbackName($fallbackName)
     {

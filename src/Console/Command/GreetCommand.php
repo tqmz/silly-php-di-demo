@@ -20,12 +20,11 @@ class GreetCommand {
      * TODO: inject NameParser directly into GreetCommandHandler?
      *       Console Command does not need to care about it ...
      */
-    public function __invoke($name, $yell = false,  OutputInterface $output, NameParser $nameParser, $fallbackName = null)
+    public function __invoke($name, $yell = false, OutputInterface $output, Handler $handler, NameParser $nameParser, $fallbackName = null)
     {
-        var_dump($fallbackName);
-        // TODO resolve those new() statements :)
+        var_dump('GreetCommand (Console): ' . $fallbackName);
         $command = new Command($name, $yell);
-        $handler = new Handler($output, $nameParser);
+        //$handler = new Handler($output, $nameParser);
         $handler->handle($command);
     }
 
