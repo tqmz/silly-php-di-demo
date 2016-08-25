@@ -17,13 +17,23 @@ use Symfony\Component\Console\Output\OutputInterface;
 class GreetCommand {
 
     /**
+     * @var Handler
+     */
+    private $handler;
+
+    public function __construct(Handler $handler)
+    {
+        $this->handler = $handler;
+    }
+
+    /**
      * TODO: inject NameParser directly into GreetCommandHandler?
      *       Console Command does not need to care about it ...
      */
-    public function __invoke($name, $yell = false, OutputInterface $output, Handler $handler, NameParser $nameParser)
+    public function __invoke($name, $yell = false, OutputInterface $output, NameParser $nameParser)
     {
         $command = new Command($name, $yell);
-        $handler->handle($command);
+        $this->handler->handle($command);
     }
 
 }
