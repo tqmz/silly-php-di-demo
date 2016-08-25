@@ -8,8 +8,8 @@ $app = new Silly\Edition\PhpDi\Application();
 $container = $app->getContainer();
 $container->set(Symfony\Component\Console\Output\OutputInterface::class, DI\object('Symfony\Component\Console\Output\ConsoleOutput'));
 $container->set(Friendsoft\Command\GreetCommandHandler::class, DI\object('Friendsoft\Command\GreetCommandHandler'));
-$container->set(Friendsoft\Parser\NameParser::class, DI\object('Friendsoft\Parser\NameParser'));
-$container->set('fallbackName', 'John');
+$container->set(Friendsoft\Parser\NameParser::class, DI\object('Friendsoft\Parser\NameParser')->constructor(DI\get('fallbackName')));
+$container->set('fallbackName', 'John'); // not hardcoded as usually this will go into a config file
 
 $app->command('greet [name] [--yell]', 'Friendsoft\Console\Command\GreetCommand');
 
