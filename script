@@ -13,3 +13,5 @@ $container->set('fallbackName', 'John'); // not hardcoded as usually this will g
 $app->command('greet [name] [--yell]', 'Friendsoft\Console\Command\GreetCommand');
 
 $app->run();
+
+// TODO: use value objects / php enum instead of (some) strings
