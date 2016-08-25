@@ -1,26 +1,9 @@
 #!/usr/bin/env php
-
 <?php
-use Symfony\Component\Console\Output\OutputInterface;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-class MyCommand
-{
-    public function __invoke($name, $yell = false,  OutputInterface $output)
-    {
-        if ($name) {
-            $text = 'Hello, '.$name;
-        } else {
-            $text = 'Hello';
-        }
-
-        $output->writeln($yell ? strtoupper($text) : $text);
-    }
-}
-
 $app = new Silly\Edition\PhpDi\Application();
-
-$app->command('greet [name] [--yell]', 'MyCommand');
+$app->command('greet [name] [--yell]', 'Friendsoft\Console\Command\GreetCommand');
 
 $app->run();
