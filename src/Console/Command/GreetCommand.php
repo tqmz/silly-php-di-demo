@@ -4,7 +4,6 @@ namespace Friendsoft\Console\Command;
 
 use Friendsoft\Command\GreetCommand as Command;
 use Friendsoft\Command\GreetCommandHandler as Handler;
-use Friendsoft\Parser\NameParser;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
@@ -26,11 +25,7 @@ class GreetCommand {
         $this->handler = $handler;
     }
 
-    /**
-     * TODO: inject NameParser directly into GreetCommandHandler?
-     *       Console Command does not need to care about it ...
-     */
-    public function __invoke($name, $yell = false, OutputInterface $output, NameParser $nameParser)
+    public function __invoke($name, $yell = false, OutputInterface $output)
     {
         $command = new Command($name, $yell);
         $this->handler->handle($command);
