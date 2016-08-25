@@ -4,6 +4,10 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 $app = new Silly\Edition\PhpDi\Application();
+
+$container = $app->getContainer();
+$container->set(Friendsoft\Parser\NameParser::class, DI\object('Friendsoft\Parser\NameParser'));
+
 $app->command('greet [name] [--yell]', 'Friendsoft\Console\Command\GreetCommand');
 
 $app->run();
