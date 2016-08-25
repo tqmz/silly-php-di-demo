@@ -30,7 +30,7 @@ class GreetCommandHandler {
     {
         $name = $this->nameParser->parse($command->getName());
         $text = 'Hello' . ($name ? ', ' . $name : '');
-        $this->output->writeln($command->doesYell() ? strtoupper($text) : $text);
+        $this->output->writeln($command->hasYell() ? strtoupper($text) : $text);
     }
 }
 
