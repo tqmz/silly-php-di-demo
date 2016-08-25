@@ -7,6 +7,7 @@ $app = new Silly\Edition\PhpDi\Application();
 
 $container = $app->getContainer();
 $container->set(Friendsoft\Parser\NameParser::class, DI\object('Friendsoft\Parser\NameParser'));
+$container->set('fallbackName', 'John');
 
 $app->command('greet [name] [--yell]', 'Friendsoft\Console\Command\GreetCommand');
 

@@ -4,6 +4,26 @@ namespace Friendsoft\Parser;
 
 class NameParser {
 
+    private $fallbackName = 'Dude';
+
+    //public function __construct($fallbackName = 'Dude')
+    //{
+    //    $this->setFallbackName($fallbackName);
+    //}
+
+    public function setFallbackName($fallbackName)
+    {
+        $this->fallbackName = $fallbackName;
+
+        return $this;
+    }
+
+    public function getFallbackName()
+    {
+        return $this->fallbackName;
+    }
+
+
     public function parse($text)
     {
         switch (substr($text, 0, 1)) {
@@ -15,6 +35,8 @@ class NameParser {
             case 'D':
                 return 'Danilo';
                 break;
+            case '':
+                return $this->getFallbackName();
             default:
                 return $text;
         }
