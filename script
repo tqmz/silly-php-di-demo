@@ -3,17 +3,11 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$app = new Silly\Edition\PhpDi\Application();
+$builder = new \DI\ContainerBuilder();
+$builder->addDefinitions(__DIR__ . '/app/bootstrap.php');
+$container = $builder->build();
 
-$container = $app->getContainer();
-// TODO: use one array instead of separate calls on container
-$container->set(Symfony\Component\Console\Output\OutputInterface::class, DI\object('Symfony\Component\Console\Output\ConsoleOutput'));
-
-$container->set(Friendsoft\Parser\NameParser::class, DI\object()->methodParameter('setFallbackName', 'fallbackName', DI\get('fallbackName')));
-$container->set('fallbackName', 'John'); // not hardcoded as usually this will go into a config file
-
+$app = new Silly\Edition\PhpDi\Application('Greeter', '0.0.7', $container);
 $app->command('greet [name] [--yell]', 'Friendsoft\Console\Command\GreetCommand');
 
 $app->run();
-
-// TODO: use value objects / php enum instead of (some) strings
