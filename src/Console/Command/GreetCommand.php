@@ -22,6 +22,7 @@ class GreetCommand {
      */
     public function __invoke($name, $yell = false,  OutputInterface $output, NameParser $nameParser)
     {
+        // TODO resolve those new() statements :)
         $command = new Command($name, $yell);
         $handler = new Handler($output, $nameParser);
         $handler->handle($command);
