@@ -1,0 +1,10 @@
+{
+    "require": {
+        "mnapoli/silly-php-di": "~1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Friendsoft\\": "src/"
+        }
+    }
+}
